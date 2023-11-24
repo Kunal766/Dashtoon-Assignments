@@ -1,0 +1,32 @@
+.inputbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.user-input {
+    flex-grow: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+.send-button {
+    padding: 8px 16px;
+    background-color: #181818;
+    color: #4D9CF8;
+    border: 1px solid #4D9CF8;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+.send-button:hover {
+    text-decoration: none;
+    background-color: rgba(77, 156, 248, 0.08);
+    border: 1px solid rgb(77, 156, 248);
+}

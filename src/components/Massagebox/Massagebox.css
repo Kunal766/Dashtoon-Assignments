@@ -1,0 +1,18 @@
+.massagebox {
+    flex-grow: 1;
+    overflow-y: auto;
+    color: #ffffff;
+}
+
+.massagebox::-webkit-scrollbar {
+    width: 5px;
+}
+
+.massagebox::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 6px;
+}
+
+.massagebox::-webkit-scrollbar-track {
+    background-color: #181818;
+}

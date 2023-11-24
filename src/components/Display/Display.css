@@ -1,0 +1,12 @@
+.display {
+    max-width: 800px;
+    margin: 0px auto;
+    background-color: #181818;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    border: 2px solid #303030;
+    box-sizing: border-box;
+}
