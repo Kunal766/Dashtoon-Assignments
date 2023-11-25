@@ -1,3 +1,9 @@
-.massage{
-    
+.massage {
+    padding-left: 2vw;
+    font-weight: 600;
+    padding-top: 2vw;
+}
+
+img {
+    height: 125px;
 }

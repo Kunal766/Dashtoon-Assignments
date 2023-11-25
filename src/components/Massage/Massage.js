@@ -2,9 +2,7 @@ import './Massage.css'
 function Massage(props) {
 
     return (<div className="massage">
-        <div className="message bot-message">
-            <p>{props.text}</p>
-        </div>
+        <span>User :</span> <span>{props.text}</span>
     </div>)
 }
 

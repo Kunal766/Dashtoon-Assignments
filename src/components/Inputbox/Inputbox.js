@@ -14,7 +14,7 @@ function Inoutbox() {
     };
 
     //massage context
-    const { state, dispatch } = useChat();
+    const dispatch = useChat().dispatch;
 
     //handle the function passed by Display onclick event of botton
     const handleSendMessage = () => {
@@ -22,24 +22,42 @@ function Inoutbox() {
             // Add the user message to the state
             dispatch({ type: 'ADD_MESSAGE', message: { sender: 'user', text: userInput } });
 
+            console.log('I am from Input Container dispatch')
 
             //call api for imges 10 times
-            query(query({ "inputs": userInput }).then((response) => {
+            const urls = [];
 
-                console.log(response);
-                const imageBytes = response
-                const blob = new Blob([imageBytes], { type: 'image/jpeg' });
-                const imageUrl = URL.createObjectURL(blob);
-                console.log(imageUrl);
+            const callapitentimes = async () => {
+                for (let i = 0; i < 10; i++) {
+                    await query({ "inputs": userInput }).then((response) => {
+                        console.log(response);
+                        const imageUrl = URL.createObjectURL(response);
+                        console.log(imageUrl);
+                        urls.push(imageUrl);
+                    })
+                    if (i === 0) {
+                        // Add image urls to state
+                        dispatch({ type: 'ADD_MESSAGE', message: { sender: 'Aicontinuing', urls: urls } });
+                        console.log('I am from Input Container dispatch')
 
-            }))
+                    }
+                    else if (i < 9) {
+                        // Edit image urls to state
+                        dispatch({ type: 'EDIT_LAST_MASSAGE', message: { sender: 'Aicontinuing', urls: urls } });
+                        console.log('I am from Input Container dispatch')
 
+                    }
+                    else {
+                        // End to talk with ai
+                        dispatch({ type: 'EDIT_LAST_MASSAGE', message: { sender: 'Ai', urls: urls } });
+                        console.log('I am from Input Container dispatch')
 
+                    }
+                }
+            }
+            callapitentimes();
             setUserInput('');
         }
-        console.log("put intput")
-        console.log(userInput.trim())
-        console.log(state)
     };
 
 
