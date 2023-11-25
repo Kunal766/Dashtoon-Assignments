@@ -7,3 +7,7 @@
     display: flex;
     align-items: center;
 }
+
+.companyName {
+    padding-left: 5vw;
+}

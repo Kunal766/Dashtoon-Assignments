@@ -2,7 +2,7 @@ import './Navbar.css'
 function Navbar() {
 
     return (<div className="navbar">
-        Dashtoon
+        <div className='companyName'>Dashtoon</div>
     </div>)
 }
 

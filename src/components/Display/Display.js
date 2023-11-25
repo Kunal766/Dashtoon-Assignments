@@ -1,5 +1,6 @@
 import query from "../../utilities/getImage";
 import { useEffect, useState } from 'react';
+import { ChatProvider } from "../../contexts/ChatContext";
 import Massagebox from "../Massagebox/Massagebox";
 import Inoutbox from "../Inputbox/Inputbox";
 import './Display.css'
@@ -21,10 +22,16 @@ function Display() {
         };
     }, []);
 
-    return (<div className="display">
-        <Massagebox/>
-        <Inoutbox/>
-    </div>)
+
+
+
+    return (
+        <ChatProvider>
+            <div className="display">
+                <Massagebox />
+                <Inoutbox />
+            </div>
+        </ChatProvider>)
 }
 
 
