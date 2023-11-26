@@ -11,9 +11,6 @@ function Massagebox() {
 
     return (<div className="massagebox">
         {
-            console.log(messages, "I am from MassageBox")
-        }
-        {
             messages && messages.map((message, index) => {
 
                 if (message.sender === 'user') {

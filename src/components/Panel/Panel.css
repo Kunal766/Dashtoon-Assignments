@@ -1,4 +1,4 @@
-.panel {
+.glary {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -8,7 +8,28 @@
 
 @media (max-width: 768px) {
 
-    .image-grid {
+    .glary {
         grid-template-columns: 1fr;
     }
+}
+
+.send-button2 {
+    padding: 8px 16px;
+    background-color: #181818;
+    color: #4D9CF8;
+    border: 1px solid #4D9CF8;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+.send-button2:hover {
+    text-decoration: none;
+    background-color: rgba(77, 156, 248, 0.08);
+    border: 1px solid rgb(77, 156, 248);
+}
+
+.toBeShared {
+    background-color: #181818;
+    position: relative;
 }
