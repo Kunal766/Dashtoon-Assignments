@@ -1,14 +1,31 @@
 import React, { useState } from 'react';
 import html2canvas from 'html2canvas';
 
-const ShareableImage = ({ element }) => {
+const ShareableImage = ({ refre }) => {
     const [image, setImage] = useState(null);
 
     const captureImage = async () => {
         await document.fonts.ready;
-        const canvas = await html2canvas(element);
+        const elements = document.getElementsByClassName('chat-bubble-content');
+
+        for (let i = 0; i < elements.length; i++) {
+            const e = elements[i];
+            console.log(e.style.top)
+            e.style.top = '125px';
+        }
+
+        let options = {
+            logging: true,
+        };
+        const canvas = await html2canvas(refre, options);
         const capturedImage = canvas.toDataURL('image/png');
         setImage(capturedImage);
+
+        for (let i = 0; i < elements.length; i++) {
+            const e = elements[i];
+            console.log(e.style.top)
+            e.style.top = '0px';
+        }
     };
 
     const handleShare = () => {

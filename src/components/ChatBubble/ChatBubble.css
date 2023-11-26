@@ -11,6 +11,7 @@
     color: #000;
     cursor: grab;
     user-select: none;
+    z-index: 10;
 }
 
 .chat-bubble:after {
@@ -34,6 +35,6 @@
 }
 
 .chat-bubble-content {
-    z-index: 10;
+    /* z-index: 10; */
     position: relative;
 }

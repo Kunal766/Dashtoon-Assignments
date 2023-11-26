@@ -17,21 +17,7 @@ function Panel({ sender, urls }) {
     const myInputRef = useRef();
     return (
         <div className="panel">
-            <input placeholder='create chat bulbble' onChange={(e) => {
-                setChatInput(e.target.value)
-            }} value={chatInput} /> <button className="send-button2" onClick={handleSendMessage}>Send</button>
-            <button className="send-button2" onClick={() => {
-                setSharing(!sharing)
-            }}>Share</button>
-            {
-                sharing && <ShareableImage element={myInputRef.current} />
-            }
             <div className='toBeShared' ref={myInputRef} style={{ width: '100%', height: '100%', position: 'relative', lineHeight: 0.5 }}>
-                {
-                    chatInputs.map((chat, index) => {
-                        return (<ChatBubble massage={chat} key={index} />)
-                    })
-                }
                 <div className='glary'>
                     {
                         urls && urls.map((url, index) => {
@@ -39,8 +25,21 @@ function Panel({ sender, urls }) {
                         })
                     }
                 </div>
-                <p style={{margin:'20px'}}>Kunal Nayak</p>
+                {
+                    chatInputs.map((chat, index) => {
+                        return (<ChatBubble massage={chat} key={index} />)
+                    })
+                }
             </div>
+            <input placeholder='create chat bubble and drag it to your character' className='bubbleInput' onChange={(e) => {
+                setChatInput(e.target.value)
+            }} value={chatInput} /> <button className="bubblego" onClick={handleSendMessage}>GO</button>
+            <button className="makecanvas" onClick={() => {
+                setSharing(!sharing)
+            }}>Create the Comic And Share it</button>
+            {
+                sharing && <ShareableImage refre={myInputRef.current} />
+            }
         </div>
     )
 }
