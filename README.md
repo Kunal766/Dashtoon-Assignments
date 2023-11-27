@@ -1,6 +1,7 @@
 # Dashtoon - Assignment
 ## Page Veiw
-![page](./src/assets/OrifinalPage.png)
+![page](./src/assets/OriginalPage.png)
+
 ## Webpage Diagram
 ![Webpage](./src/assets/webpage.png)
 ## Massage Component Diagram
