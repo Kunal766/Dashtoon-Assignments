@@ -16,11 +16,15 @@ function Inoutbox() {
 
     //massage context
     const dispatch = useChat().dispatch;
-    const { state, dispatchwait } = useWait();
+    const { waitstate, dispatchwait } = useWait();
 
     //handle the function passed by Display onclick event of botton
     const handleSendMessage = () => {
         if (userInput.trim() !== '') {
+            console.log("waitstate :", waitstate)
+            dispatchwait({ type: 'CHANGETOTRUE' });
+            console.log("waitstate :", waitstate)
+
             // Add the user message to the state
             dispatch({ type: 'ADD_MESSAGE', message: { sender: 'user', text: userInput } });
 
@@ -59,7 +63,6 @@ function Inoutbox() {
             }
             callapitentimes();
             setUserInput('');
-            // dispatchwait({ type: 'CHANGETOTRUE', message: !state });
         }
     };
 
@@ -70,8 +73,8 @@ function Inoutbox() {
 
     return (<div className="inputbox">
         <input type="text" className="user-input" placeholder="Massage Dashtoon..." onChange={handleChange} value={userInput} />
-        {state && <button className="send-button">Wait Tile This comic is Fully Complite </button>}
-        {(!state) && <button className="send-button" onClick={handleSendMessage}>Send</button>}
+        {waitstate && <button className="send-button">Wait Tile This comic is Fully Complite </button>}
+        {(!waitstate) && <button className="send-button" onClick={handleSendMessage}>Send</button>}
     </div>)
 }
 

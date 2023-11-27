@@ -10,8 +10,10 @@ function Panel({ sender, urls }) {
     const [sharing, setSharing] = useState(false)
 
     function handleSendMessage() {
-        setChatInputs([...chatInputs, chatInput])
-        setChatInput('')
+        if (chatInput.trim() !== '') {
+            setChatInputs([...chatInputs, chatInput])
+            setChatInput('')
+        }
     }
 
     const myInputRef = useRef();
@@ -33,7 +35,7 @@ function Panel({ sender, urls }) {
             </div>
             <input placeholder='create chat bubble and drag it to your character' className='bubbleInput' onChange={(e) => {
                 setChatInput(e.target.value)
-            }} value={chatInput} /> <button className="bubblego" onClick={handleSendMessage}>GO</button>
+            }} value={chatInput} /> <button className="bubblego" onClick={handleSendMessage}>Create Bubble</button>
             <button className="makecanvas" onClick={() => {
                 setSharing(!sharing)
             }}>Create the Comic And Share it</button>

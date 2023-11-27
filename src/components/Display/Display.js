@@ -6,14 +6,14 @@ import './Display.css'
 
 function Display() {
     return (
-        <ChatProvider>
-            <WaitProvider>
+        <WaitProvider>
+        <ChatProvider>   
             <div className="display">
                 <Massagebox />
                 <Inoutbox />
                 </div>
-            </WaitProvider>
-        </ChatProvider>)
+            </ChatProvider>
+        </WaitProvider>)
 }
 
 
