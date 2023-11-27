@@ -30,7 +30,6 @@ const ShareableImage = ({ refre }) => {
             });
         } else {
             // Handle sharing for non-supported browsers or missing image
-            console.log('Sharing not supported or image not captured');
         }
     };
 

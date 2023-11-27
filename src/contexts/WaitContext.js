@@ -19,6 +19,5 @@ export const useWait = () => {
     if (!context) {
         throw new Error('useWait must be used within a WaitProvider');
     }
-    console.log("I am from useWait");
     return context;
 };
