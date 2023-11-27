@@ -21,7 +21,7 @@ function Panel({ sender, urls }) {
                 <div className='glary'>
                     {
                         urls && urls.map((url, index) => {
-                            return (<img key={index} src={url} alt='comicimage' />)
+                            return (<img key={index} src={url} alt='comicimage' className='comicImage' />)
                         })
                     }
                 </div>

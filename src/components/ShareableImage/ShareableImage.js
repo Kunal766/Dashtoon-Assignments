@@ -1,31 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import html2canvas from 'html2canvas';
+import './ShareableImage.css'
 
 const ShareableImage = ({ refre }) => {
     const [image, setImage] = useState(null);
 
+    useEffect(() => {
+        captureImage();
+    })
+
     const captureImage = async () => {
         await document.fonts.ready;
-        const elements = document.getElementsByClassName('chat-bubble-content');
 
-        for (let i = 0; i < elements.length; i++) {
-            const e = elements[i];
-            console.log(e.style.top)
-            e.style.top = '125px';
-        }
-
-        let options = {
-            logging: true,
-        };
-        const canvas = await html2canvas(refre, options);
+        const canvas = await html2canvas(refre);
         const capturedImage = canvas.toDataURL('image/png');
         setImage(capturedImage);
 
-        for (let i = 0; i < elements.length; i++) {
-            const e = elements[i];
-            console.log(e.style.top)
-            e.style.top = '0px';
-        }
     };
 
     const handleShare = () => {
@@ -58,10 +48,12 @@ const ShareableImage = ({ refre }) => {
     };
 
     return (
-        <div >
-            <button onClick={captureImage}>Capture Image</button>
-            {image && <img src={image} alt="Shareable" />}
-            {image && <button onClick={handleShare}>Share</button>}
+        <div className='shareable'>
+            {image && <img src={image} alt="Shareable" className='comicImageFull' />}
+            <div className='options'>
+                {image && <button onClick={captureImage} className='reCapture' cal>Re Capture Image</button>}
+                {image && <button onClick={handleShare} className='share'>Share</button>}
+            </div>
         </div>
     );
 };

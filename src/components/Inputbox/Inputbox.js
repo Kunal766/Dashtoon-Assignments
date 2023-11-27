@@ -1,5 +1,6 @@
 import './Inputbox.css'
 import { useChat } from '../../contexts/ChatContext';
+import { useWait } from '../../contexts/WaitContext';
 import { useState } from 'react';
 import query from '../../utilities/getImage';
 
@@ -15,6 +16,7 @@ function Inoutbox() {
 
     //massage context
     const dispatch = useChat().dispatch;
+    const { state, dispatchwait } = useWait();
 
     //handle the function passed by Display onclick event of botton
     const handleSendMessage = () => {
@@ -57,15 +59,19 @@ function Inoutbox() {
             }
             callapitentimes();
             setUserInput('');
+            // dispatchwait({ type: 'CHANGETOTRUE', message: !state });
         }
     };
 
 
 
 
+
+
     return (<div className="inputbox">
         <input type="text" className="user-input" placeholder="Massage Dashtoon..." onChange={handleChange} value={userInput} />
-        <button className="send-button" onClick={handleSendMessage}>Send</button>
+        {state && <button className="send-button">Wait Tile This comic is Fully Complite </button>}
+        {(!state) && <button className="send-button" onClick={handleSendMessage}>Send</button>}
     </div>)
 }
 

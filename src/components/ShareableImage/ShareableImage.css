@@ -1,0 +1,31 @@
+.reCapture {
+    padding: 8px 16px;
+    background-color: #181818;
+    color: #4D9CF8;
+    border: 1px solid #4D9CF8;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+.share {
+    padding: 8px 16px;
+    background-color: #181818;
+    color: #4D9CF8;
+    border: 1px solid #4D9CF8;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+.comicImageFull {
+    width: 50%;
+    height: auto;
+}
+
+.shareable {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
